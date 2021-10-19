@@ -95,7 +95,6 @@ int main()
             printf("\033[1;32m Результат  = \033[0m%.0f\n\n", a);
             printf("Выберите цифру: ");
             break;
-            break;
         case 6:
 
             printf("Введите значение A: ");
