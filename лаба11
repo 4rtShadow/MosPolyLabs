@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <math.h>
 #include <locale.h>
@@ -95,8 +96,8 @@ int main()
             scanf_s("%f", &xc);
             printf("Введите значение C по Y: ");
             scanf_s("%f", &yc);
-            ab = sqrt(pow(xa - xb, 2) + pow(ya - yb, 2));
-            ac = sqrt(pow(xa - xc, 2) + pow(ya - yc, 2));
+            ab = sqrt(pow(fabs(xa - xb), 2) + pow(fabs(ya - yb), 2));
+            ac = sqrt(pow(fabs(xa - xc), 2) + pow(fabs(ya - yc), 2));
             if (ac < ab)
             {
                 printf("\033[1;32mТочка C расположена ближе к A, расстояние от точки С до А: %0.f \033[0m\n\n", ac);
