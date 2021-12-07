@@ -5,7 +5,9 @@
 
 int main()
 {
-    int a, n, c,day, month, route, command;
+    int a, n, day, month;
+    char c;
+    char h;
 
     setlocale(LC_ALL, "Rus");
 
@@ -24,9 +26,9 @@ int main()
         switch (vvod)
         {
         case 1:
-            printf("Введите день: "); 
+            printf("Введите день: ");
             scanf_s("%i", &day);
-            printf("Введите месяц: "); 
+            printf("Введите месяц: ");
             scanf_s("%i", &month);
             if (day > 31 || day < 1 || month < 1 || month > 12)
             {
@@ -159,32 +161,67 @@ int main()
             printf("Выберите цифру: ");
             break;
         case 2:
-            printf("Введите начальное направление («1» — север, «2» — запад, «3» — юг, «4» — восток): ");
-            scanf_s("%i", &route);
+            printf("Введите начальное направление («N» — север, «E» — запад, «S» — юг, «W» — восток): ");
+            scanf_s(" %c", &c);
             printf("Введите команду (0 — продолжать движение, 1 — поворот налево, -1 — поворот направо): ");
-            scanf_s("%i", &command);
-            route += command;
-            switch (route)
+            scanf_s("%i", &n);
+            switch (c) 
             {
-            case (1):
-                printf("Направление на Север \n\n");
+                case 'N':
+                switch (n) {
+                case 1:
+                    printf("Запад\n");
+                    break;
+                case 0:
+                    printf("Север\n");
+                    break;
+                case -1:
+                    printf("Восток\n");
+                    break;
+                }
                 break;
-            case (2):
-                printf("Направление на Запад \n\n");
+            case 'W':
+                switch (n) {
+                case 1:
+                    printf("Север\n");;
+                    break;
+                case 0:
+                    printf("Восток\n");
+                    break;
+                case -1:
+                    printf("Юг\n");
+                    break;
+                }
+            case 'S':
+                switch (n) {
+                case 1:
+                    printf("Восток\n");
+                    break;
+                case 0:
+                    printf("Север\n");
+                    break;
+                case -1:
+                    printf("Запад\n");
+                    break;
+                }
                 break;
-            case (3):
-                printf("Направление на Юг \n\n");
-                break;
-            case (4):
-                printf("Направление на Восток \n\n");
-                break;
-            case (0):
-                printf("Направление на Восток \n\n");
+            case 'E':
+                switch (n) {
+                case 1:
+                    printf("Юг\n");
+                    break;
+                case 0:
+                    printf("Запад\n");
+                    break;
+                case -1:
+                    printf("Север\n");
+                    break;
+                }
             }
             printf("Выберите цифру: ");
             break;
         case 3:
-            printf("Введите количество учебных заданий: "); 
+            printf("Введите количество учебных заданий: ");
             scanf_s("%i", &a);
             if ((a > 9) && (a < 41))
             {
@@ -278,7 +315,7 @@ int main()
             printf("Выберите цифру: ");
             break;
         case 4:
-            printf("Введите число: "); 
+            printf("Введите число: ");
             scanf_s("%i", &a);
             if ((a > 99) && (a < 1001))
             {
@@ -416,7 +453,7 @@ int main()
             printf("Выберите цифру: ");
             break;
         case 5:
-            printf("Год: "); 
+            printf("Год: ");
             scanf_s("%i", &n);
             printf("Год ");
             switch ((n) % 10) {
