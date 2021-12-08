@@ -179,11 +179,11 @@ int main()
                     printf("Восток\n");
                     break;
                 }
-                break;
+                
             case 'W':
                 switch (n) {
                 case 1:
-                    printf("Север\n");;
+                    printf("Север\n");
                     break;
                 case 0:
                     printf("Восток\n");
