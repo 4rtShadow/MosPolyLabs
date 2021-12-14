@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a[10];
+    int n, i = 1, i2 = 1, b;
+    int z = 1;
+    float A, D = 0;
+    int* array = NULL;
+    array = (int*)malloc(100);
+
+    setlocale(LC_ALL, "Rus");
+
+    printf("1. Сформировать и вывести целочисленный массив размера N, содержащий N первых положительных нечетных чисел: 1, 3, 5, . . . .\n");
+    printf("2. Сформировать и вывести массив размера N, содержащий N первых членов данной прогрессии: A, A·D, A·D2 , A·D3 , . . .\n");
+    printf("3. Сформировать и вывести целочисленный массив размера N, первый элемент которого равен A, второй равен B, а каждый последующий элемент равен сумме всех предыдущих.\n");
+    printf("4. Дан массив A размера N. Вывести его элементы в следующем порядке: A1, AN , A2, AN−1, A3, AN−2.\n");
+    printf("5. Дан массив A размера N. Вывести вначале его элементы с нечетными номерами в порядке возрастания номеров, а затем — элементы с четными номерами в порядке убывания номеров.\n");
+    printf("6. Выход.\n\n");
+    printf("Ваше число: ");
+    while (1)
+    {
+        int vvod;
+        scanf_s("%d", &vvod);
+        switch (vvod)
+        {
+        case 1:
+            printf("Введите размер массива: ");
+            scanf_s("%i", &n);
+            for (i = 0; i < n; ++i, i2 += 2)
+                a[i] = i2;
+            for (i = 0; i < n; ++i)
+                printf("%i ", a[i]);
+            printf("\n\nВыберите цифру: ");
+            break;
+        case 2:
+            printf("Введите размер массива N: ");
+            scanf_s("%i", &n);
+            printf("Введите A: ");
+            scanf_s("%f", &A);
+            printf("Введите знаменатель D: ");
+            scanf_s("%f", &D);
+            for (int i = 0; i < n; ++i) {
+                array[i] = A * z;
+                z *= D;
+            }
+            for (int i = 0; i < n; ++i) {
+                printf("%i ", array[i]);
+            }
+            printf("\n\nВыберите цифру: ");
+            break;
+        case 3:
+            printf("Введите размер массива: ");
+            scanf_s("%i", &n);
+            printf("Введите первый элемент A: ");
+            scanf_s("%i", &a[0]);
+            printf("Введите второй элемент B: ");
+            scanf_s("%i", &a[1]);
+            for (i = 2; i < n; ++i) {
+                a[i] = 0;
+                int i2;
+                for (i2 = 0; i2 < i; ++i2) a[i] += a[i2];
+            }
+            for (i = 0; i < n; ++i)
+                printf("%i ", a[i]);
+            printf("\n\nВыберите цифру: ");
+            break;
+        case 4:
+            printf("Введите размер массива: ");
+            scanf_s("%i", &n);
+            for (i = 0; i < n; ++i) {
+                printf("%i: ", i + 1);
+                scanf_s("%i", &a[i]);
+            }
+            for (i = 0; i < n / 2; ++i) {
+                printf("%i ", a[i]);
+                printf("%i ", a[n - i - 1]);
+            }
+            if (n % 2 != 0)
+                printf("\n%i\n", a[(n / 2)]);
+            printf("\n\nВыберите цифру: ");
+            break;
+        case 5:
+            printf("Введите размер массива: ");
+            scanf_s("%i", &n);
+            for (i = 0; i < n; ++i) {
+                printf("%i: ", i + 1);
+                scanf_s("%i", &a[i]);
+            }
+            printf("Нечетные(возрастание): ");
+            for (i = 0; i < n; i += 2)
+                printf("%i ", a[i]);
+            printf("\nЧетные(убывание): ", a[i]);
+            for (i = n - (n % 2) - 1; i >= 1; i -= 2)
+                printf("%i ", a[i]);
+            printf("\n\nВыберите цифру: ");
+            break;
+        case 6:
+            printf("Хорошо, выходим(\n");
+            return 0;
+            break;
+        default:
+            printf("\033[5;31m Неправильный ввод! Попробуйте еще раз. \033[0m\n\n");
+            printf("Выберите цифру: ");
+        }
+    }
+}
